@@ -1,0 +1,115 @@
+body {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.2em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.article-design{
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: 4px red solid;
+    border-bottom: 4px red solid;
+    border-right: 4px red solid;
+    border-left: 4px red solid;
+    /*
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    */
+    padding: 20px;
+    margin: 20px 40px 20px 40px;
+}
+
+
+.article-design h2{
+     font-weight: 700;
+     font-style: italic;
+     text-decoration: underline;
+     text-transform: capitalize;
+}
+
+.container1{
+    width: 500px;
+    margin: auto;
+}
+
+.categories{
+
+    border: 2px solid red;
+    padding: 20px;
+    border-radius: 15px;
+    padding: 20px;
+    margin: auto;
+
+}
+
+.categories h3{
+    font-weight: 900;
+    font-style: italic;
+    text-decoration: underline;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: green;
+}
+
+a:hover{
+    color: yellow;
+}
+
+
+.form1{
+
+    padding: 15px;
+
+}
+
+.form1 .form-section1{
+    padding-bottom: 25px;
+}
+
+.form1 label{
+    display: block;
+}
+
+.form1 input{
+    width: 40%;
+    padding: 5px;
+
+}
+
+.btn1 {
+    color: blue;
+    background-color: yellow;
+    
+    border-radius: 10px;
+    padding: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    /*
+    position: absolute;
+    bottom: 20px;
+    */
+}
+
+.btn1:hover {
+    background: green;
+    color: white;
+}
+
+.image-box{
+    height: 650px;
+    width: 700px;
+    
+    border: 3px solid black;
+    margin: 20px;
+    
+background-image:url('../images/InvoicePragmaticBookshelf.png');
+background-repeat: no-repeat;
+background-position: 100px 100px;
+
+}
