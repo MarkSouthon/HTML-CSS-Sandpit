@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            height: 100vh;
+            width: 100%;
+            /* background-color: #daf1f9; */
+            /* background-image: url("data:image/svg+xml,%3Csvg width='70' height='70' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239dc2f1' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 0h35v35H0V0zm5 5h25v25H5V5zm5 5h15v15H10V10zm5 5h5v5h-5v-5zM40 5h25v25H40V5zm5 5h15v15H45V10zm5 5h5v5h-5v-5zM70 35H35v35h35V35zm-5 5H40v25h25V40zm-5 5H45v15h15V45zm-5 5h-5v5h5v-5zM30 40H5v25h25V40zm-5 5H10v15h15V45zm-5 5h-5v5h5v-5z'/%3E%3C/g%3E%3C/svg%3E"); */
+            background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+            background-position: center;
+            background-size: cover;
+            padding-left: 170px;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(17px);
+            --webkit-backdrop-filter: blur(17px);
+            border-right: 1px solid rgba(255, 255, 255, 0.7);
+            transition: width 0.3s ease;
+        }
+
+        .sidebar div {
+            padding: 8px 8px 8px 30px;
+            font-size: 24px;
+            display: block;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+        }
+
+        .openbtn {
+            font-size: 24px;
+            cursor: pointer;
+            background-color: lightblue;
+        }
+
+        #main {
+            transition: margin-left .5s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="mySidebar" class="sidebar">
+        <div class="closebtn" onclick="closeNav()">×</div>
+        <div>About</div>
+        <div>Services</div>
+        <div>Clients</div>
+    </div>
+
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">Open Sidebar</button>
+        <p> (your body text here)) </p>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+        }
+    </script>
+
+</body>
+
+</html>
