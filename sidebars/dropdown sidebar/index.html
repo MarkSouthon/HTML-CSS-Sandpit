@@ -2,150 +2,182 @@
 <!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
 <html lang="en" dir="ltr">
 
-<head>
-  <meta charset="UTF-8">
-  <title> SchoolOps</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Boxiocns CDN Link -->
-  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>SchoolOps</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css'
+          rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
 
-<body background="image/clouds.jpg">
-  <div class="sidebar close">
-    <div class="logo-details">
-      <i class='bx bx-cloud'></i>
-      <span class="logo_name">SchoolOps</span>
-    </div>
-    <ul class="nav-links">
-      <li>
-        <a href="#">
-          <i class='bx bx-grid-alt'></i>
-          <span class="link_name">Dashboard</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Category</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-collection'></i>
-            <span class="link_name">Category</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow'></i>
+    <body background="image/clouds.jpg">
+      <div class="sidebar close">
+        <div class="logo-details">
+          <i class='bx bx-cloud'></i>
+          <span class="logo_name">SchoolOps</span>
         </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Category</a></li>
-          <li><a href="#">HTML & CSS</a></li>
-          <li><a href="#">JavaScript</a></li>
-          <li><a href="#">PHP & MySQL</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-book-alt'></i>
-            <span class="link_name">Posts</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow'></i>
+        <ul class="nav-links">
+          <li>
+            <a href="{% url 'home' %}">
+              <i class='bx bxs-home'></i>
+              <span class="link_name">Home</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li>
+                <a class="link_name" href="#">Home</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="{% url 'select_day_period' %}">
+              <i class='bx bxs-door-open'></i>
+              <span class="link_name">Free Room Check</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li>
+                <a class="link_name" href="#">Free Room Check</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="icon-link">
+              <a href="{% url 'duty-about' %}">
+                <i class='bx bx-walk'></i>
+                <span class="link_name">Duties</span>
+              </a>
+              <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+              <li>
+                <a href="{% url '' %}">Show Duty Roster</a>
+              </li>
+              <li>
+                <a href="{% url 'create-requestduties' %}">Enter your Duty Requests</a>
+              </li>
+              <li>
+                <a href="{% url 'individual-duty-requests' %}">List your Duty Requests</a>
+              </li>
+              <li>
+                <a href="{% url 'edit-requests' %}">Change your Requests</a>
+              </li>
+              <li>
+                <a href="{% url 'delete-requests' %}">Delete your Requests</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <div class="icon-link">
+              <a href="#">
+                <i class='bx bx-question-mark'></i>
+                <span class="link_name">Queries</span>
+              </a>
+              <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+              <li>
+                <a href="{% url 'duty-about' %}">Free Room Check</a>
+              </li>
+              <li>
+                <a href="{% url 'staff-display' %}">All Staff List</a>
+              </li>
+              <li>
+                <a href="{% url 'staff-select' %}">Staff Timetable</a>
+              </li>
+            </ul>
+          </li>
+          <hr>
+          <hr>
+          {% if perms.accounts.manager %}
+            <div>
+              <div class="logo-details">
+                <i class='bx bxs-user-badge'></i>
+                <span class="logo_name">Manager</span>
+              </div>
+              <li>
+                <a href="{% url 'admin:index' %}">
+                  <i class='bx bxs-cog'></i>
+                  <span class="link_name">Admin Panel</span>
+                </a>
+                <ul class="sub-menu blank">
+                  <li>
+                    <a class="link_name" href="#">Admin Panel</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <div class="icon-link">
+                  <a href="{% url 'duty-admin' %}">
+                    <i class='bx bx-walk'></i>
+                    <span class="link_name">Duties</span>
+                  </a>
+                  <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="{% url 'list-duties' %}">List All Duty Slots</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'duties-details' %}">All Users Duty Requests</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'create-requests-all' %}">Create User Requests</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'list-duty-requests' %}">List All User's Requests</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'create-duty-roster' %}">Create New Duty Roster</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <div class="icon-link">
+                  <a href="#">
+                    <i class='bx bx-question-mark'></i>
+                    <span class="link_name">Queries</span>
+                  </a>
+                  <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                  <li>
+                    <a class="link_name" href="#">Queries</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'staff-ops' %}">Staff Teaching Loads</a>
+                  </li>
+                </ul>
+              </li>
+            </div>
+            <li>
+              <div class="profile-details">
+                <div class="profile-content">
+                  <img src="image/profile.png" alt="profileImg">
+                </div>
+                <div class="name-job">
+                  <div class="profile_name">{{ user.get_fname }}</div>
+                  <div class="job">{{ user.get_group }}</div>
+                </div>
+                <a href="{% url 'account_logout' %}">
+                  <i class='bx bx-log-out'></i>
+                </a>
+              </div>
+            </li>
+          </ul>
         </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Posts</a></li>
-          <li><a href="#">Web Design</a></li>
-          <li><a href="#">Login Form</a></li>
-          <li><a href="#">Card Design</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-pie-chart-alt-2'></i>
-          <span class="link_name">Analytics</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Analytics</a></li>
-        </ul>
-      </li>
-      <hr>
-      <div class="logo-details">
-        <i class='bx bx-chalkboard'></i>
-        <span class="logo_name">Teacher</span>
-      </div>
-      <li>
-        <a href="#">
-          <i class='material-icons'>admin_panel_settings</i>
-          <span class="link_name">Chart</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Chart</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="iocn-link">
-          <a href="#">
-            <i class='bx bx-plug'></i>
-            <span class="link_name">Plugins</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow'></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">Plugins</a></li>
-          <li><a href="#">UI Face</a></li>
-          <li><a href="#">Pigments</a></li>
-          <li><a href="#">Box Icons</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-compass'></i>
-          <span class="link_name">Explore</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Explore</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-history'></i>
-          <span class="link_name">History</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">History</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-cog'></i>
-          <span class="link_name">Setting</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Setting</a></li>
-        </ul>
-      </li>
-      <li>
-        <div class="profile-details">
-          <div class="profile-content">
-            <img src="image/profile.jpg" alt="profileImg">
+        <section class="home-section">
+
+          <div class="home-content">
+            <i class='bx bx-menu'></i>
+            <span class="text">Drop Down Sidebar1</span>
           </div>
-          <div class="name-job">
-            <div class="profile_name">Prem Shahi</div>
-            <div class="job">Web Desginer</div>
-          </div>
-          <i class='bx bx-log-out'></i>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <section class="home-section">
+        </section>
 
-    <div class="home-content">
-      <i class='bx bx-menu'></i>
-      <span class="text">Drop Down Sidebar1</span>
-    </div>
-  </section>
+        <script src="script.js"></script>
 
-  <script src="script.js"></script>
+      </body>
 
-</body>
-
-</html>
+    </html>
